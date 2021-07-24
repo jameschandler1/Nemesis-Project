@@ -1,0 +1,29 @@
+{
+  "name": "nemesis-project",
+  "version": "1.0.0",
+  "description": "A cooperative story telling based forum, you and your friends, and enemies, try and make you way in this gritty, realistic dystopia.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "open http://localhost:4000 & nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameschandler1/Nemesis-Project.git"
+  },
+  "keywords": [
+    "Forum",
+    "Sci-fi"
+  ],
+  "author": "James-Chandler, Veritas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jameschandler1/Nemesis-Project/issues"
+  },
+  "homepage": "https://github.com/jameschandler1/Nemesis-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.3",
+    "morgan": "^1.10.0"
+  }
+}
