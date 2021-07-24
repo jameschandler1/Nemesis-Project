@@ -1,6 +1,6 @@
 {
   "name": "nemesis-project",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A cooperative story telling based forum, you and your friends, and enemies, try and make you way in this gritty, realistic dystopia.",
   "main": "server.js",
   "scripts": {
