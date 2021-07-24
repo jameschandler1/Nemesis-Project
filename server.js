@@ -2,6 +2,7 @@
 // all code that is not our own
 const express = require("express"); 
 const logger = require('morgan');
+const mongoose = require('mongoose');
 /* ====== Internal Modules  ====== */
 // all code that is our code 
 const indexRouter = require('./routes/index');
