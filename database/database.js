@@ -1,4 +1,4 @@
-const connectionString = 'mongodb+srv://Veritas:<Nemesis>@nemesis-db.owvgs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const connectionString = 'mongodb+srv://Veritas:Nemesis@nemesis-db.owvgs.mongodb.net/Nemesis-db?retryWrites=true&w=majority';
 
 const mongoose = require('mongoose');
 
@@ -12,11 +12,9 @@ const configs = {
 
 mongoose
 	.connect(connectionString, configs)
-	.then(() => console.log("MongoDB successfully connected!"))
-	.connect(process.env.DATABASE_URL || connectionString, configs)
 	.then(() =>
 		console.log(
-			`MongoDB successfully connected at ${db.host}:${db.port}! How dope!`
+			`Nemesis access granted at ${db.host}:${db.port}.`
 		)
 	)
 	.catch((err) => console.log(`MongoDB connection FAILED :( Error: ${err}`));
