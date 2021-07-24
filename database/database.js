@@ -19,27 +19,3 @@ mongoose
 	)
 	.catch((err) => console.log(`MongoDB connection FAILED :( Error: ${err}`));
 
-
-
-
-
-
-
-
-
-
-
-
-// mongoose.connect(connectionString, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false,
-// })
-// .then()
-
-// const db = mongoose.connection;
-
-// // db.on('connected', function() {
-// //     console.log(`Nemesis database connected and active at ${db.host}:${db.port}`);
-// // });
