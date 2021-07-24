@@ -17,6 +17,7 @@ const PORT = 4000;
 /* ====== App Configuration  ====== */
 // app.set
 app.set("view engine", "ejs");
+require('./database/database');
 
 /*======= Middleware ======*/
 app.use(logger('morgan'));
