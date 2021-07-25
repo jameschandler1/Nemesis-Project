@@ -5,7 +5,8 @@ const logger = require('morgan');
 /* ====== Internal Modules  ====== */
 // all code that is our code 
 const indexRouter = require('./routes/index');
-const locationRouter = require('./routes/locations')
+const locationRouter = require('./routes/locations');
+// const eventRouter = require('./routes/events');
 
 /* ====== Instanced Module  ====== */
 // Create the Express App
@@ -25,6 +26,7 @@ app.use(logger('morgan'));
 /*======Routes==========*/
 app.use('/', indexRouter);
 app.use('/locations', locationRouter)
+// app.use('/locations/', eventRouter)
 
 /* ====== Server bind  ====== */
 // bind the application to the port via app.listen
