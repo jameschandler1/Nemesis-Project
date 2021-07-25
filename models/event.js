@@ -12,4 +12,5 @@ const eventSchema = new Schema({
     location: {type: Schema.Types.ObjectId, ref: "location"},
 });
 
-module.exports = mongoose.model("event", eventSchema);
+const Event = mongoose.model("Event", eventSchema);
+module.exports = Event;

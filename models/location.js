@@ -7,4 +7,5 @@ const locationSchema = new Schema({
     events: {type: Schema.Types.ObjectId, ref: "event"},
 });
 
-module.exports = mongoose.model("location", locationSchema);
+const Location = mongoose.model('location', locationSchema)
+module.exports = Location;

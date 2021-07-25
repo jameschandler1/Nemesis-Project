@@ -7,4 +7,6 @@ const commentSchema = new Schema({
     events: {type: Schema.Types.ObjectId, ref: "event"},
 });
 
-module.exports = mongoose.model("comment", commentSchema);
+const Comment = mongoose.model("Comment", commentSchema);
+module.exports = Comment;
+
