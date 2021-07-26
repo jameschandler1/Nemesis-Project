@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 /* ====== Internal Modules  ====== */
 // all code that is our code 
 const indexRouter = require('./routes/index'); 
-const locationRouter = require('./routes/locations')
+
 
 /* ====== Instanced Module  ====== */
 // Create the Express App
@@ -25,7 +25,7 @@ app.use(logger('morgan'));
 
 /*======Routes==========*/
 app.use('/', indexRouter);
-app.use('/locations', locationRouter)
+
 
 /* ====== Server bind  ====== */
 // bind the application to the port via app.listen
