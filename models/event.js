@@ -7,9 +7,10 @@ const eventSchema = new Schema({
     description: {type: String},
     start: {type: Date, required: true, default: Date.now},
     end: {type: Date, required: true, default: Date.now},
-    user: {type: Schema.Types.ObjectId, ref: "user"},
-    comments: {type: Schema.Types.ObjectId, ref: "comment"},
-    location: {type: Schema.Types.ObjectId, ref: "location"},
+    user: {type: Schema.Types.ObjectId, ref: "User"},
+    comments: {type: Schema.Types.ObjectId, ref: "Comment"},
+    location: {type: Schema.Types.ObjectId, ref: "Location"},
 });
 
-module.exports = mongoose.model("event", eventSchema);
+const Event = mongoose.model("Event", eventSchema);
+module.exports = Event;

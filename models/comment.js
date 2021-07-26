@@ -3,8 +3,10 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     comment: {type: String, required: true},
-    user: {type: Schema.Types.ObjectId, ref: "user"},
-    events: {type: Schema.Types.ObjectId, ref: "event"},
+    user: {type: Schema.Types.ObjectId, ref: "User"},
+    events: {type: Schema.Types.ObjectId, ref: "Event"},
 });
 
-module.exports = mongoose.model("comment", commentSchema);
+const Comment = mongoose.model("Comment", commentSchema);
+module.exports = Comment;
+
