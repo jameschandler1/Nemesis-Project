@@ -1,20 +1,21 @@
 const Location = require('../models/location')
 
-function index(req, res) {
-    res.render('location/index');
-}
+// function index(req, res) {
+//     res.render('location/index');
+// }
 
 function locationDetails(req, res) {
-    Location.findById(req.params.id, (err, location) => {
+    Location.find({},  (err, location) => {
         if (err) {
-            return res.send(err)       
+            return res.send(err)
         }
-        else
-            res.render('location/details', location)
+        else {
+            res.render('location/index', {location})
+        }
     })
 }
-
+  
 module.exports = {
-    index,
+    // index,
     show: locationDetails,
 }

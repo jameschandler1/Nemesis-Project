@@ -1,3 +1,15 @@
 <%- include('../partials/header.ejs') %>
     list of all known locations
+    <table>
+        <tr>
+            <th>worlds/locations</th>
+        </tr>
+        
+    <% location.forEach(l => { %>
+        <tr>
+            <td>l.events.location</td>
+        </tr>
+    </table>
+   <% }) %>
+
 <%- include('../partials/footer.ejs') %> 
