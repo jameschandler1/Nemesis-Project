@@ -3,4 +3,5 @@ const userCtrl = require('../controllers/user')
 
 router.get('/', userCtrl.isLoggedIn, userCtrl.index)
 
+
 module.exports = router
