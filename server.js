@@ -44,7 +44,7 @@ app.use(passport.session());
 
 /*======Routes==========*/
 app.use('/', routes.auth)
-
+app.use('/user', routes.user)
 
 /* ====== Server bind  ====== */
 // bind the application to the port via app.listen
