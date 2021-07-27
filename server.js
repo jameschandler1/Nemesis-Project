@@ -1,11 +1,15 @@
+require('dotenv').config();
 /* ====== External Modules  ====== */
 // all code that is not our own
 const express = require("express"); 
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const session = require("express-session");
+const passport = require('passport');
 /* ====== Internal Modules  ====== */
+const routes =require('./routes')
 // all code that is our code 
-const indexRouter = require('./routes/index'); 
+
 
 
 /* ====== Instanced Module  ====== */
@@ -18,13 +22,28 @@ const PORT = 4000; //the port for local machine hosting
 /* ====== App Configuration  ====== */
 // app.set
 app.set("view engine", "ejs");//set view engine to ejs
-require('./database/database'); //bring in the Nemesis database
+require('./config/database'); //bring in the Nemesis database
+require('./config/passport')
+
 
 /*======= Middleware ======*/
 app.use(logger('morgan'));
+app.use(express.static('public'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(
+  session({
+    secret: 'Nemesisx',
+    resave: false,
+    saveUninitialized: true,
+  })
+)
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 /*======Routes==========*/
-app.use('/', indexRouter);
+app.use('/', routes.auth)
 
 
 /* ====== Server bind  ====== */
