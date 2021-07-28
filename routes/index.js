@@ -1,8 +1,7 @@
-const express = require('express');
-const router = express.Router();
-
-router.get('/', function(req, res) {
-    res.render('/index');
-});
-
-module.exports = router;
+module.exports = {
+    user: require('./user'),
+    // comments: require('./comment'),
+    // locations: require('./location'),
+    // event: require('./event')
+    auth: require('./auth')
+}
