@@ -15,6 +15,12 @@ function isLoggedIn(req, res, next) {
     res.redirect('/auth/google')
 }
 
+function socket(req, res) {
+    User.findById(req.params.id, (err, user) => {
+        res.sendFile(__dirname + '/index.html')
+    })
+}
+
 // function userIndex(req, res, next) {
 //     User.find({}, (err, user) => {
 //         res.render
@@ -24,4 +30,5 @@ function isLoggedIn(req, res, next) {
 module.exports = {
     index,
     isLoggedIn,
+    socket,
 }
