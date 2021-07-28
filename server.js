@@ -61,6 +61,10 @@ const server = app.listen(PORT, function () {
 const socket = require('socket.io');
 const io = socket(server);
 
+app.get('/user', (req, res) => {
+  res.sendFile(__dirname + '/user.ejs');
+});
+
 io.on('connection', (socket) => {
   console.log('socket connect');
   socket.on('disconnect', () => {
@@ -74,3 +78,8 @@ io.on('connection', (socket) => {
   });
 });
 
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+  });
+});
