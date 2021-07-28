@@ -1,7 +1,7 @@
 module.exports = {
     user: require('./user'),
     // comments: require('./comment'),
-    // locations: require('./location'),
+    map: require('./map'),
     event: require('./event'),
     auth: require('./auth')
 }
