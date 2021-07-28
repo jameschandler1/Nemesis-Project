@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 
 const locationSchema = new Schema({
     post: {type: String, required: true},
-    events: {type: Schema.Types.ObjectId, ref: "Event"},
     name: {type: String}
 });
 
