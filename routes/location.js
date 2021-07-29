@@ -4,4 +4,4 @@ const router = express.Router();
 
 router.post("/create", Location_controller.create);
 
-module.esports = router;
+module.exports = router;
