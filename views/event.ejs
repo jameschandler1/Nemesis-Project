@@ -1,0 +1,14 @@
+<%- include('partials/header.ejs') %>
+<form id="new-event" action="/user/event" method="POST">
+    <label>Event Title:</label>
+    <input type="text" name="title">
+    <label>Start and end Dates</label>
+    <input type="date" name="start">
+    <input type="date" name="end">
+    <select name="location">
+        <option value="PH NAME">PH NAME</option>
+        <option value="PH NAME 2">PH NAME 2</option>
+    </select>
+    <input type="submit">
+</form>
+<%- include('partials/footer.ejs') %>
