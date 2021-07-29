@@ -1,0 +1,14 @@
+
+    {
+        "_model": "user",
+        "location": [
+            {
+                "post": "PH INFO",
+                "name": "PH NAME"
+            },
+            {
+                "post": "PH INFO 2",
+                "name": "PH NAME 2" 
+            }
+        ]
+    }
