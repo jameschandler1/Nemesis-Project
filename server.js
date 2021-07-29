@@ -6,7 +6,7 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require('passport');
-const bodyParser = require("body-parser")
+const methodOverride = require("method-override")
 
 
 
@@ -33,7 +33,7 @@ app.use(express.static('public'));
 app.use(express.static(__dirname + '/node_modules'));  
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-;
+app.use(methodOverride('_method'))
 app.use(
   session({
     secret: 'Nemesisx',
