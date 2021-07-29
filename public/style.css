@@ -1,0 +1,25 @@
+#event-column {
+ border:black solid 1px;
+ width: 400px;
+}
+
+#event-tbl {
+    display: inline-block;
+    height:700;
+    width: 400px;
+}
+
+.orientation {
+    display: inline;
+}
+
+.label {
+    color: blue;
+}
+
+tr.orientation th, tr.orientation td { display: block;   }
+
+body {
+    background-color: aquamarine;
+    min-height: 750px;
+}
