@@ -19,7 +19,7 @@ data = require('./data.json');
 
 
 // Drop the entire database (default behaviour)
-seeder.seed(data, {dropDatabase: false}).then(function(dbData) {
+seeder.seed(data, {dropCollections: true}).then(function(dbData) {
     // ...
 }).catch(function(err) {
     // handle error

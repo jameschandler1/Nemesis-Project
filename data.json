@@ -1,6 +1,7 @@
 
-    {
-        "_model": "user",
+{
+    "locations": {
+        "_model": "Location",
         "location": [
             {
                 "post": "PH INFO",
@@ -12,3 +13,4 @@
             }
         ]
     }
+}
