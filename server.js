@@ -6,6 +6,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require('passport');
+const bodyParser = require("body-parser")
+
 
 
 /* ====== Internal Modules  ====== */
@@ -31,6 +33,7 @@ app.use(express.static('public'));
 app.use(express.static(__dirname + '/node_modules'));  
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+;
 app.use(
   session({
     secret: 'Nemesisx',
@@ -45,8 +48,9 @@ app.use(passport.session());
 /*======Routes==========*/
 app.use('/', routes.auth)
 app.use('/user', routes.user)
-app.use('/user/main', routes.event)
+app.use('/user/main', routes.main)
 app.use('/user/map', routes.map)
+app.use('/user/event', routes.event)
 
 //route for chat
 app.get('/', function(req, res, next) {  
