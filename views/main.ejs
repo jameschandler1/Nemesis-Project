@@ -1,25 +1,24 @@
 <%- include('partials/header.ejs') %>
-<h1>this is where the user will spend most of their time</h1>
 
-<table>
-    <tr>
-        <th>Location</th>
-        <th>Event Title</th>
-        <th>Start Date</th>
-        <th>End Date</th>
-    </tr>
-    <tr>
-        <% event.forEach(event => { %>
-            <td><%= event.location %></td>
-            <td><%= event.title %></td>
-            <td><%= event.start %></td>
-            <td><%= event.end %></td>
-            <td><form action="/user/main/<%= event._id %>?_method=DELETE" method="POST">
-                <button type="submit">x</button>
-            </form></td>
-       <% }) %>
-        <td></td>
-    </tr>
-</table>
+
+<section id="event-column">
+    <table id="event-tbl">
+        <tr>
+            <th colspan="1">Events</th>  
+        <tr class="orientation">
+            <% event.forEach(event => { %>
+                <td><label class="label">Location: </label><%= event.location %></td>
+                <td><label class="label">Title: </label><%= event.title %></td>
+                <td><label class="label">Start Date: </label><%= event.start %></td>
+                <td><label class="label">End Date: </label><%= event.end %></td>
+                <td><form action="/user/main/<%= event._id %>?_method=DELETE" method="POST">
+                    <button type="submit">x</button>
+                </form></td>
+        <% }) %>
+        </tr>
+
+    </table>
+</section>
+
 
 <%- include('partials/footer.ejs') %>

@@ -5,5 +5,6 @@ const mainCtrl = require('../controllers/main');
 // router.get('/', eventCtrl.render);
 router.get('/',  mainCtrl.isLoggedIn, mainCtrl.getEvent);
 router.delete('/:id', mainCtrl.deleteEvent)
+router.get('/', mainCtrl.userFind)
 
 module.exports = router;
