@@ -45,7 +45,7 @@ app.use(passport.session());
 /*======Routes==========*/
 app.use('/', routes.auth)
 app.use('/user', routes.user)
-app.use('/user/event', routes.event)
+app.use('/user/main', routes.event)
 app.use('/user/map', routes.map)
 
 //route for chat
