@@ -6,15 +6,16 @@ const Location = require('../models/location');
 // };
 
 function locationList(req, res) {
-    Location.find({}, function(err, location) {
+    Location.find({}, (err, location) => {
         if (err) {
-            console.log(err)
+            return res.send(err)
         }
         else {
         res.render('map', {location});
         }
     });
 };
+
 
 
 module.exports = {
