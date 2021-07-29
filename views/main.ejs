@@ -1,13 +1,13 @@
 <%- include('partials/header.ejs') %>
 
 
-<section id="event-column">
+<section id="event-column" style="overflow-y: scroll; overflow-x: hidden;" >
     <table id="event-tbl">
         <tr>
             <th colspan="1">Events</th>  
         <tr class="orientation">
             <% event.forEach(event => { %>
-                <td><label class="label">Location: </label><%= event.location %></td>
+                <td><label class="label">Location: </label><%= event.location.name %></td>
                 <td><label class="label">Title: </label><%= event.title %></td>
                 <td><label class="label">Start Date: </label><%= event.start %></td>
                 <td><label class="label">End Date: </label><%= event.end %></td>
@@ -20,5 +20,102 @@
     </table>
 </section>
 
+<style>
+    #form {
+        background: rgba(0, 0, 0, 0.15);
+        padding: 0.25rem;
+        position: fixed;
+        bottom: 0;
+        left: 1;
+        right: 0;
+        display: flex;
+        width: 40rem;
+        height: 3rem;
+        box-sizing: border-box;
+        backdrop-filter: blur(10px);
+    }
+
+    #input {
+        border: none;
+        padding: 0 1rem;
+        justify-content: center;
+        flex-grow: 1;
+        border-radius: 2rem;
+        margin: 0.25rem;
+    }
+
+    #input:focus {
+        outline: none;
+    }
+
+    #form>button {
+        background: #333;
+        border: none;
+        padding: 0 1rem;
+        margin: 0.25rem;
+        border-radius: 3px;
+        outline: none;
+        color: #fff;
+    }
+
+    #messages {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 40rem;
+        max-height: 200px;
+        overflow: auto;
+        position: fixed;
+        bottom: 5vh;
+        left: 165.25ex;
+    }
+
+    #messages>li {
+        padding: 0.5rem 1rem;
+    }
+
+    #messages>li:nth-child(odd) {
+        background: #efefef;
+    }
+</style>
+
+
+
+<ul id="messages"></ul>
+
+
+
+<form id="form" action="">
+    <input id="input" autocomplete="off" /><button>Send</button>
+</form>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+
+    const socket = io();
+
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+    const messages = document.getElementById('messages');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (input.value) {
+            socket.emit('chat message', input.value);
+            input.value = '';
+        }
+    });
+
+    socket.on('chat message', function (msg) {
+        const item = document.createElement('li');
+        const focus = document.getElementById('messages')
+        item.textContent = msg;
+        messages.appendChild(item);
+        focus.scrollTop = focus.scrollHeight;
+    });
+
+
+
+</script>
 
 <%- include('partials/footer.ejs') %>

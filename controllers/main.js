@@ -6,12 +6,14 @@ const User = require('../models/user');
 // };
 
 function getEvent(req, res) {
-    Event.find({}, (err, event) => {
+    Event.find({}, (err, event,) => {
         if (err)
         return res.send(err);
         res.render('main', {event})
-    })
+    }).populate({path: 'location',}).exec();
+    
 }
+
 
 function deleteEvent(req, res) {
     Event.findByIdAndRemove(req.params.id, (err, event) => {

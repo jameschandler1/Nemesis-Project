@@ -68,7 +68,7 @@ const socket = require('socket.io');
 const io = socket(server);
 
 app.get('/user', (req, res) => {
-  res.sendFile(__dirname + '/user.ejs');
+  res.sendFile(__dirname + '/main.ejs');
 });
 
 io.on('connection', (socket) => {

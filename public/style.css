@@ -1,6 +1,7 @@
 #event-column {
  border:black solid 1px;
  width: 400px;
+ max-height: 750px;
 }
 
 #event-tbl {
@@ -11,6 +12,7 @@
 
 .orientation {
     display: inline;
+    margin: auto;
 }
 
 .label {
@@ -22,4 +24,5 @@ tr.orientation th, tr.orientation td { display: block;   }
 body {
     background-color: aquamarine;
     min-height: 750px;
+    max-height: 1440px;
 }
