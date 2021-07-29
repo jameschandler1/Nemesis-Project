@@ -1,3 +1,25 @@
 <%- include('partials/header.ejs') %>
 <h1>this is where the user will spend most of their time</h1>
+
+<table>
+    <tr>
+        <th>Location</th>
+        <th>Event Title</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    <tr>
+        <% event.forEach(event => { %>
+            <td><%= event.location %></td>
+            <td><%= event.title %></td>
+            <td><%= event.start %></td>
+            <td><%= event.end %></td>
+            <td><form action="/user/main/<%= event._id %>?_method=DELETE" method="POST">
+                <button type="submit">x</button>
+            </form></td>
+       <% }) %>
+        <td></td>
+    </tr>
+</table>
+
 <%- include('partials/footer.ejs') %>
