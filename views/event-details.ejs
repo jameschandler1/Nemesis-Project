@@ -14,11 +14,11 @@
 </section>
 
 <br>
-
-<% comment.forEach(comment => { %>
-<div class="comment"> <%= comment.comment %> </div>
+<% if (comment) { %>
+<% comment.forEach(c => { %>
+<div class="comment"> <%= c.comment %> </div>
 <% }) %>
-
+<% } %>
 <br>
 
 

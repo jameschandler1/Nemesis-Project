@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema({
     comment: {type: String, required: true},
     user: {type: Schema.Types.ObjectId, ref: "User"},
-    event: {type: Schema.Types.ObjectId, ref: 'event'}
+    event: {type: Schema.Types.ObjectId, ref: 'Event'}
 });
 
 const Comment = mongoose.model("Comment", commentSchema);
