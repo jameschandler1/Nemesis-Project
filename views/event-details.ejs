@@ -1,0 +1,32 @@
+
+
+<%- include('partials/header.ejs') %>
+
+<section id="details">
+    <div>
+        <h1><%= event.location.name %></h1>
+        <div><%= event.location.post %></div>
+        <br>
+        <div><%= event.title %></div>
+        <br>
+        <div><%= event.description %></div>
+    </div>
+</section>
+
+<br>
+<% if (comment) { %>
+<% comment.forEach(c => { %>
+<div class="comment"> <%= c.comment %> </div>
+<% }) %>
+<% } %>
+<br>
+
+
+
+<form id="comment-form" action="/user/event-details/<%= event._id %>" method="POST">
+    <label>comments</label>
+    <textarea id="comment-area" type="text" name="comment"></textarea>
+    <input type="submit" key="enter">
+</form>
+
+<%- include('partials/footer.ejs') %>
