@@ -2,9 +2,13 @@
 <form id="new-event" action="/user/event" method="POST">
     <label>Event Title:</label>
     <input type="text" name="title">
-    <label>Start and end Dates</label>
-    <input type="date" name="start">
-    <input type="date" name="end">
+    <br>
+    <label>Start Date:</label>
+    <input type="datetime-local" name="start">
+    <br>
+    <label>End Date:</label>
+    <input type="datetime-local" name="end">
+    <br>
     <select name="location">
         <option value="61030114814fff5e2a08e671">Nemesis Prime</option>
         <option value="61030114814fff5e2a08e672">OCP-Legionnaire</option>
@@ -12,6 +16,10 @@
         <option value="61030114814fff5e2a08e674">Nemesis Secundus</option>
         <option value="61030114814fff5e2a08e675">Fortress Monasstary Testudo</option>
     </select>
+    <br>
+    <label>description: </label>
+    <textarea cols="2" rows="1" id="des" type="text" name="description"></textarea>
+    
     <input type="submit">
 </form>
 <%- include('partials/footer.ejs') %>

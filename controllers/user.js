@@ -4,7 +4,6 @@ const User = require('../models/user')
 function index(req, res, next) {
     User.findById(req.params.id, (err, user) => {
         res.render('user/index', {
-            user,
             user: req.user,
         })
     })

@@ -51,6 +51,7 @@ app.use('/user', routes.user)
 app.use('/user/main', routes.main)
 app.use('/user/map', routes.map)
 app.use('/user/event', routes.event)
+app.use('/user/event-details', routes.detail)
 
 //route for chat
 app.get('/', function(req, res, next) {  
@@ -68,7 +69,7 @@ const socket = require('socket.io');
 const io = socket(server);
 
 app.get('/user', (req, res) => {
-  res.sendFile(__dirname + '/main.ejs');
+  res.sendFile(__dirname + '/user.ejs');
 });
 
 io.on('connection', (socket) => {

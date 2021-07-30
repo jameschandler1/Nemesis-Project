@@ -1,13 +1,26 @@
 #event-column {
  border:black solid 1px;
  width: 400px;
- max-height: 750px;
+ max-height: 690px;
 }
 
 #event-tbl {
     display: inline-block;
     height:700;
     width: 400px;
+}
+
+#des {
+    height: 120px;
+    margin: auto 0;
+}
+
+#new-event {
+    display: flex;
+    flex-flow: column wrap;
+    align-content:space-between;
+    height: 400px;
+    width: 100px;
 }
 
 .orientation {
@@ -26,3 +39,4 @@ body {
     min-height: 750px;
     max-height: 1440px;
 }
+

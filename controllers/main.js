@@ -3,14 +3,15 @@ const User = require('../models/user');
 //  function render (req, res) {
 
 //     res.render('main');
+
 // };
 
 function getEvent(req, res) {
-    Event.find({}, (err, event,) => {
+    Event.find({}, (err, event, user) => {
         if (err)
         return res.send(err);
-        res.render('main', {event})
-    }).populate({path: 'location',}).exec();
+        res.render('main', {event, user})
+    }).populate({path: 'location'})
     
 }
 
@@ -24,14 +25,6 @@ function deleteEvent(req, res) {
     })
 }
 
-function userFind(req, res) {
-    User.find({}, (err, user) => {
-        if (err)
-        return res.send(err)
-        res.render('main', {user})
-    })
-}
-
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
     res.redirect('/auth/google')
@@ -39,8 +32,9 @@ function isLoggedIn(req, res, next) {
 
 
 module.exports = {
-    userFind,
+    // userFind,
     getEvent,
     deleteEvent,
     isLoggedIn,
+    
 };
