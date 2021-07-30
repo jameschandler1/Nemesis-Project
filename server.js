@@ -2,7 +2,7 @@ require('dotenv').config();
 /* ====== External Modules  ====== */
 // all code that is not our own
 const express = require("express"); 
-const logger = require('morgan');
+const morg = require('morgan');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require('passport');
@@ -28,7 +28,10 @@ require('./config/database'); //bring in the Nemesis database
 require('./config/passport')
 
 /*======= Middleware ======*/
-app.use(logger('morgan'));
+app.use(morg('tiny'));
+morg.token('param', function(req, res, param) {
+    return req.params[param];
+});
 app.use(express.static('public'));
 app.use(express.static(__dirname + '/node_modules'));  
 app.use(express.json());
