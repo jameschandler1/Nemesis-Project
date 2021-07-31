@@ -4,12 +4,12 @@ const eventCtrl = require('../controllers/event-details');
 const event = require('../models/event')
 
 
-
+router.patch('/:id', eventCtrl.updateComment)
 router.get('/:id',  eventCtrl.isLoggedIn, eventCtrl.getEventDetails)
-
-// router.get('/:id', eventCtrl.findComment)
-
 router.post(`/:id`, eventCtrl.addComment)
+router.delete('/:id', eventCtrl.deleteComment)
+
+
 
 
 

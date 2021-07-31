@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 
 const Event = require('../models/event')
 const Comment = require('../models/comment');
+const { event } = require('../routes');
 
 
-function getEventDetails(req, res) {
+async function getEventDetails(req, res) {
     Event.findById(req.params.id, (err, event, user) => {
       Comment.find({event: mongoose.Types.ObjectId(req.params.id)}, (err, comment) => {
         
@@ -19,7 +20,7 @@ function getEventDetails(req, res) {
 }
 
 
-function addComment(req, res) {
+async function addComment(req, res) {
     req.body.user = mongoose.Types.ObjectId(req.user.id)
     req.body.event = mongoose.Types.ObjectId(req.params.id)
     console.log('comment im making');
@@ -33,24 +34,39 @@ function addComment(req, res) {
 }
 
 
+async function updateComment(req, res, next) {
+    comment = Comment
+        console.log(comment)
+        console.log(req.body)
+    comment.updateOne({_id: req.params.id}, event).then(
+    () => {
+        $set:{
+            comment: ''
+        }
+      res.status(201).json({
+        message: 'Thing updated successfully!'
+      });
+    }
+  ).catch(
+    (error) => {
+      res.status(400).json({
+        error: error
+      });
+    }
+  );
+  res.redirect(`/user/event-details/${req.params.id}`)
+}
 
+async function deleteComment(req, res) {
+    Comment.findByIdAndRemove(req.params.id, (err, event) => {
+        if (err) {
+            return res.send("on no", err)
+        }
+        res.send(event)
+        res.redirect(`/user/event-details/${req.params.id}`)
+    })
+}
 
-
-
-
-// function findComment(req, res) {
-//     Comment.findById(req.params.id, (err, comment) => {
-//         if (err) {
-//         return res.send(err)
-//         }
-//         else {
-//             comment.event.push(req.body)
-//             comment.save(err => {
-//                 res.redirect(`/user/event-details/${req.params.id}`)
-//             })
-//         }
-//     })
-// }
 
 
 function isLoggedIn(req, res, next) {
@@ -63,6 +79,7 @@ module.exports = {
     addComment,
     isLoggedIn,
     getEventDetails,
-    // findComment
+    updateComment,
+   deleteComment
    
 }

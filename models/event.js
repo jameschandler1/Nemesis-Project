@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
 
 
-// const commentSchema = new Schema({
-//     comment: {type: String, required: true},
-//     user: {type: Schema.Types.ObjectId, ref: "User"},
-// });
+
 
 const eventSchema = new Schema({
     title: {type: String, required: true,},
@@ -17,8 +15,10 @@ const eventSchema = new Schema({
     comment: {type: Schema.Types.ObjectId, ref: "Comment"},
 });
 
-// const Comment = mongoose.model("Comment", commentSchema);
+
 
 const Event = mongoose.model("Event", eventSchema);
 
 module.exports = Event;
+
+eventSchema.plugin(uniqueValidator);
