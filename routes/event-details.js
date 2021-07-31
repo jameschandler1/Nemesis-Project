@@ -4,13 +4,9 @@ const eventCtrl = require('../controllers/event-details');
 const event = require('../models/event')
 
 
-router.patch('/:id', eventCtrl.updateComment)
 router.get('/:id',  eventCtrl.isLoggedIn, eventCtrl.getEventDetails)
-router.post(`/:id`, eventCtrl.addComment)
-router.delete('/:id', eventCtrl.deleteComment)
-
-
-
-
+router.post(`/:id`, eventCtrl.isLoggedIn, eventCtrl.addComment)
+router.patch('/:id', eventCtrl.isLoggedIn, eventCtrl.updateComment)
+router.delete('/:id', eventCtrl.isLoggedIn, eventCtrl.deleteComment)
 
 module.exports = router;

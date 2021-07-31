@@ -17,12 +17,12 @@
 
 <% comment.forEach(c => { %>
 <div class="comment"> <%= c.user %> : <%= c.comment %> </div>
-<form action="/user/event-details/<%= event._id %>" method="POST">
+<form action="/user/event-details/<%= c.id %>?_method=PATCH" method="POST">
     <input type="text" name="comment">
     <button type="submit">edit</button>
 </form>
-<form action="/user/event-details/<%= event._id %>?_method=DELETE" method="POST">
-    <button type="submit">x</button>
+<form action="/user/event-details/<%= c.id %>?_method=DELETE" method="POST">
+    <button type="submit" name="delete">x</button>
 </form>
 <% }) %>
 
@@ -30,7 +30,7 @@
 
 
 
-<form id="comment-form" action="/user/event-details/<%= event._id %>?_method=PATCH" method="POST">
+<form id="comment-form" action="/user/event-details/<%= event._id %>" method="POST">
     <textarea id="comment-area" type="text" name="comment"></textarea>
     <input type="submit" value='comment'>
 </form>

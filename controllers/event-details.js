@@ -1,26 +1,22 @@
 const mongoose = require('mongoose');
-
 const Event = require('../models/event')
 const Comment = require('../models/comment');
-const { event } = require('../routes');
 
 
-async function getEventDetails(req, res) {
+
+function getEventDetails(req, res) {
     Event.findById(req.params.id, (err, event, user) => {
       Comment.find({event: mongoose.Types.ObjectId(req.params.id)}, (err, comment) => {
-        
-        if (err)  return res.send(err)
-        else if (req.body)
-
+        // if (req.body)
         res.render(`event-details`, {event, user, comment})
     })
-    if (err)  return res.send(err);   
+    if (err)  return res.send(err);
+       
     }).populate({path: 'location'})
-    
 }
 
 
-async function addComment(req, res) {
+function addComment(req, res) {
     req.body.user = mongoose.Types.ObjectId(req.user.id)
     req.body.event = mongoose.Types.ObjectId(req.params.id)
     console.log('comment im making');
@@ -28,42 +24,41 @@ async function addComment(req, res) {
     Comment.create(req.body, (err, comment) => {
     console.log(comment);
        if (err)
-       return res.send(err);
+        res.send(err);
        return res.redirect(`/user/event-details/${req.params.id}`)
    })
 }
 
 
-async function updateComment(req, res, next) {
-    comment = Comment
-        console.log(comment)
-        console.log(req.body)
-    comment.updateOne({_id: req.params.id}, event).then(
-    () => {
-        $set:{
-            comment: ''
-        }
-      res.status(201).json({
-        message: 'Thing updated successfully!'
-      });
-    }
-  ).catch(
-    (error) => {
-      res.status(400).json({
-        error: error
-      });
-    }
-  );
-  res.redirect(`/user/event-details/${req.params.id}`)
+function updateComment(req, res) {
+   if (mongoose.Types.ObjectId.isValid(req.params.id)) {
+       console.log(req.body.comment)
+       Comment.findByIdAndUpdate(req.params.id,
+        {$set: {comment: JSON.stringify(req.body.comment)}},
+        {new: true},
+        
+        ).then((comment) => {
+            console.log(comment)
+            if (comment) {
+                resolve({success: true, data:comment});
+                return res.redirect(`/user/event-details/${req.params.id}`)
+            }
+            else {
+               
+            }
+        }).catch(err => {
+         res.send(err)
+        })
+   } else {
+       
+   }
 }
 
-async function deleteComment(req, res) {
+function deleteComment(req, res) {
     Comment.findByIdAndRemove(req.params.id, (err, event) => {
-        if (err) {
-            return res.send("on no", err)
-        }
+        if (err)
         res.send(event)
-        res.redirect(`/user/event-details/${req.params.id}`)
+        return res.redirect(`/user/event-details/${req.params.id}`)
     })
 }
 
@@ -71,7 +66,7 @@ async function deleteComment(req, res) {
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
-    res.redirect('/auth/google')
+    return res.redirect('/auth/google')
 }
 
 
@@ -80,6 +75,6 @@ module.exports = {
     isLoggedIn,
     getEventDetails,
     updateComment,
-   deleteComment
+    deleteComment
    
 }
