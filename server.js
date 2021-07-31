@@ -56,6 +56,7 @@ app.use('/user/main', routes.main)
 app.use('/user/map', routes.map)
 app.use('/user/event', routes.event)
 app.use('/user/event-details', routes.detail)
+app.use('/user/event-details', routes.comments)
 
 //route for chat
 app.get('/', function(req, res, next) {  
