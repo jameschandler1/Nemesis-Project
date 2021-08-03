@@ -12,7 +12,7 @@ function updateComment(req, res) {
         {new: true},  
         function (err, updatedComment){
             if (err) return res.send(err);
-            return res.render(`user-details`, {event});
+            return res.render(`event-details`, {event});
     }).populate({path: 'location'})
     })
 }
