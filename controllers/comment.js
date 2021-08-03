@@ -23,7 +23,7 @@ function deleteComment(req, res) {
     const location = Location;
     Comment.findByIdAndRemove(req.params.id, (err, event) => {
         if (err)
-        res.send(event)
+       
         return res.render(`event-details`, {event, location})
     }).populate({path: 'location'})
 }
