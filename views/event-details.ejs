@@ -2,19 +2,17 @@
 
 <%- include('partials/header.ejs') %>
 
-<script>
+<script> 
 
-    const event = require('../models/event.js')
-    const location = require('../models/location.js')
+   const location = require('../models/location.js')
     
-    
-</script>
+</script> 
 
 
 <section id="details">
     <div>
         <h1><%= event.location.name %></h1>
-        <div><%= event.location.post %></div>
+        <div><%=  event.location.post  %></div>
         <br>
         <div><%= event.title %></div>
         <br>

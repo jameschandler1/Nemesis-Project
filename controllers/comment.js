@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Event = require('../models/event')
 const Comment = require('../models/comment');
+const Location = require('../models/location')
 
 
 function updateComment(req, res) {
@@ -10,18 +11,20 @@ function updateComment(req, res) {
         {$set: {...req.body}
         },
         {new: true},  
-        function (err, updatedComment){
+        function (err, location, comment){
             if (err) return res.send(err);
-            return res.render(`event-details`, {event});
+            console.log(event)
+            return res.render(`event-details`, {event, user, location, comment});
     }).populate({path: 'location'})
     })
 }
 
 function deleteComment(req, res) {
+    const location = Location;
     Comment.findByIdAndRemove(req.params.id, (err, event) => {
         if (err)
         res.send(event)
-        return res.render(`event-details`, {event})
+        return res.render(`event-details`, {event, location})
     }).populate({path: 'location'})
 }
 
