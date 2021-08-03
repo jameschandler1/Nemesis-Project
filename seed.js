@@ -40,7 +40,7 @@ const data = [
 
 seeder.connect(db, function () {
     seeder.loadModels(['./models/location']);
-    seeder.clearModels(['locations']);
+    seeder.clearModels(['Locations']);
     seeder.populateModels(data, function (err, done) {
         if (err) {
             return console.log("seed error", err);
@@ -52,6 +52,22 @@ seeder.connect(db, function () {
     });
 });
 
+
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const uniqueValidator = require('mongoose-unique-validator');
+
+
+const locationSchema = new Schema({
+    post: {type: String, required: true},
+    name: {type: String},
+    comment: {type: Schema.Types.ObjectId, ref: "Comment"},
+    event: {type: Schema.Types.ObjectId, ref: 'Event'}
+});
+
+const Location = mongoose.model('Location', locationSchema, "Locations")
+module.exports = Location;
+locationSchema.plugin(uniqueValidator);
 
 // Drop the collection
 // seeder.seed(data, {dropCollections: true}).then(function(dbData) {

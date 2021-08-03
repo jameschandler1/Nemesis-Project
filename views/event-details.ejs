@@ -2,10 +2,16 @@
 
 <%- include('partials/header.ejs') %>
 
+<script> 
+   const location = require('../models/location.js')
+    
+</script> 
+
+
 <section id="details">
     <div>
         <h1><%= event.location.name %></h1>
-        <div><%= event.location.post %></div>
+        <div><%=  event.location.post  %></div>
         <br>
         <div><%= event.title %></div>
         <br>
@@ -14,19 +20,25 @@
 </section>
 
 <br>
-<% if (comment) { %>
+
 <% comment.forEach(c => { %>
-<div class="comment"> <%= c.comment %> </div>
+<div class="comment"> <%= c.user %> : <%= c.comment %> </div>
+<form action="/user/event-details/comment/<%= c.id %>?_method=PATCH" method="POST">
+    <input type="text" name="comment">
+    <button type="submit">edit</button>
+</form>
+<form action="/user/event-details/comment/<%= c.id %>?_method=DELETE" method="POST">
+    <button type="submit" name="comment">x</button>
+</form>
 <% }) %>
-<% } %>
+
 <br>
 
 
 
 <form id="comment-form" action="/user/event-details/<%= event._id %>" method="POST">
-    <label>comments</label>
     <textarea id="comment-area" type="text" name="comment"></textarea>
-    <input type="submit" key="enter">
+    <input type="submit" value='comment'>
 </form>
 
 <%- include('partials/footer.ejs') %>
