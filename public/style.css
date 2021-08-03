@@ -93,13 +93,13 @@
 }
 
 .label {
-    color: blue;
+    color: rgb(255, 174, 0);
 }
 
 tr.orientation th, tr.orientation td { display: block;   }
 
 body {
-    background-color: aquamarine;
+    background-color: rgb(41, 141, 187);
     min-height: 750px;
     max-height: 1440px;
 }

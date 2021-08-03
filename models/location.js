@@ -9,8 +9,6 @@ const locationSchema = new Schema({
     comment: {type: Schema.Types.ObjectId, ref: "Comment"} 
 });
 
-
 const Location = mongoose.model('Location', locationSchema, "Locations")
 module.exports = Location;
-
 locationSchema.plugin(uniqueValidator);

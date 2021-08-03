@@ -8,8 +8,8 @@ const commentSchema = new Schema({
     event: {type: Schema.Types.ObjectId, ref: 'Event'}
 });
 
-
 const Comment = mongoose.model("Comment", commentSchema);
+
 module.exports = Comment;
 
 commentSchema.plugin(uniqueValidator);

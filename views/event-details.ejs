@@ -2,7 +2,13 @@
 
 <%- include('partials/header.ejs') %>
 
+<script>
 
+    const event = require('../models/event.js')
+    const location = require('../models/location.js')
+    
+    
+</script>
 
 
 <section id="details">
@@ -20,12 +26,12 @@
 
 <% comment.forEach(c => { %>
 <div class="comment"> <%= c.user %> : <%= c.comment %> </div>
-<form action="/user/event-details/<%= c.id %>?_method=PATCH" method="POST">
+<form action="/user/event-details/comment/<%= c.id %>?_method=PATCH" method="POST">
     <input type="text" name="comment">
     <button type="submit">edit</button>
 </form>
-<form action="/user/event-details/<%= c.id %>?_method=DELETE" method="POST">
-    <button type="submit" name="delete">x</button>
+<form action="/user/event-details/comment/<%= c.id %>?_method=DELETE" method="POST">
+    <button type="submit" name="comment">x</button>
 </form>
 <% }) %>
 
