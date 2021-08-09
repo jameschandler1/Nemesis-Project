@@ -13,9 +13,3 @@ const locationSchema = new Schema({
 const Location = mongoose.model('Location', locationSchema, "Locations")
 module.exports = Location;
 locationSchema.plugin(uniqueValidator);
-
-// const Location = require('../seed')
-
-// module.exports = {
-//     Location,
-// }

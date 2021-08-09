@@ -32,21 +32,6 @@ function isLoggedIn(req, res, next) {
 }
 
 
-// function updateComment(req, res) {
-//        console.log(req.body.comment)
-//        Event.findById(req.params.id, (err, event, user) => {
-//        Comment.findByIdAndUpdate(req.params.id,
-//         {$set: {...req.body}
-//         },
-//         {new: true},  
-//         function (err, updatedComment){
-//             if (err) return res.send(err);
-//             return res.redirect(`/user/event-details/`);
-//     })
-//     })
-// }
-
-
 
 
 module.exports = {
@@ -54,7 +39,5 @@ module.exports = {
     addComment,
     isLoggedIn,
     getEventDetails,
-    // updateComment,
-
    
 }
