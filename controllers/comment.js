@@ -14,7 +14,7 @@ function updateComment(req, res) {
         function (err, location, comment){
             if (err) return res.send(err);
             console.log(event)
-            return res.render(`event-details`, {event, user, location, comment});
+            return res.render(`comment`, {event, user, location, comment});
     }).populate({path: 'location'})
     })
 }
@@ -24,7 +24,7 @@ function deleteComment(req, res) {
     Comment.findByIdAndRemove(req.params.id, (err, event) => {
         if (err)
        
-        return res.render(`event-details`, {event, location})
+        return res.render(`comment`, {event, location})
     }).populate({path: 'location'})
 }
 
