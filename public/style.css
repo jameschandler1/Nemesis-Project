@@ -112,3 +112,16 @@ body {
     margin: 1em;
     border: 0.5em, #000000, solid
 }
+
+#bg {
+    background-image: url(https://mcdn.wallpapersafari.com/medium/13/78/3IKmHz.png);
+    display: block;
+    height: 50em;
+    background-size: cover;
+}
+
+#Intro {
+    color: #1bd63e;
+    margin: .7em;
+}
+
