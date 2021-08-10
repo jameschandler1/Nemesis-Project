@@ -1,7 +1,12 @@
+#align {
+    display: flex;
+}
+
 #event-column {
  border:black solid 1px;
  width: 400px;
  max-height: 690px;
+
 }
 
 #event-tbl {
@@ -118,10 +123,20 @@ body {
     display: block;
     height: 50em;
     background-size: cover;
+    flex: 1;
 }
 
 #Intro {
     color: #1bd63e;
     margin: .7em;
+}
+
+#ev-explain {
+    display:inline-block;
+    flex: 1;
+    margin: 1em;
+    margin-top: 2.75em;
+    color: #1bd63e;
+    
 }
 
