@@ -104,3 +104,11 @@ body {
     max-height: 1440px;
 }
 
+#NavBar {
+    background-color: #0f661f;
+}
+
+#NavLink {
+    margin: 1em;
+    border: 0.5em, #000000, solid
+}
