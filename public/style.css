@@ -1,7 +1,12 @@
+#align {
+    display: flex;
+}
+
 #event-column {
  border:black solid 1px;
  width: 400px;
  max-height: 690px;
+
 }
 
 #event-tbl {
@@ -102,5 +107,36 @@ body {
     background-color: rgb(41, 141, 187);
     min-height: 750px;
     max-height: 1440px;
+}
+
+#NavBar {
+    background-color: #0f661f;
+}
+
+#NavLink {
+    margin: 1em;
+    border: 0.5em, #000000, solid
+}
+
+#bg {
+    background-image: url(https://mcdn.wallpapersafari.com/medium/13/78/3IKmHz.png);
+    display: block;
+    height: 50em;
+    background-size: cover;
+    flex: 1;
+}
+
+#Intro {
+    color: #1bd63e;
+    margin: .7em;
+}
+
+#ev-explain {
+    display:inline-block;
+    flex: 1;
+    margin: 1em;
+    margin-top: 2.75em;
+    color: #1bd63e;
+    
 }
 
