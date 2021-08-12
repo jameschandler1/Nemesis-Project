@@ -98,13 +98,13 @@
 }
 
 .label {
-    color: rgb(255, 174, 0);
+    color: #890909;
 }
 
 tr.orientation th, tr.orientation td { display: block;   }
 
 body {
-    background-color: rgb(41, 141, 187);
+    background-color: #a05c03;
     min-height: 750px;
     max-height: 1440px;
 }
@@ -139,4 +139,19 @@ body {
     color: #1bd63e;
     
 }
+#location {
+    margin: 1em;
+    color:#efefef;
+}
 
+#name {
+    text-emphasis: 1;
+    text-decoration: underline;
+}
+
+#map-bg {
+    background-image: url(https://i.imgur.com/kTqG8kG.png);
+    display: block;
+    background-size: cover;
+    height: 25em;
+}
