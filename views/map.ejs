@@ -1,9 +1,12 @@
 <%- include('partials/header.ejs') %>
-<h1>this is where the location map will go</h1>
-
+<div id='map-bg'>
+<div id='align'>
 <% location.forEach(l => { %>
-    <div><%= l.name %> </div>
-    <div><%= l.post %> </div>
+    <div id='location'>
+    <div id='name'><%= l.name %> </div>
+    <div id='post'><%= l.post %> </div>
+    </div>
 <% }) %>
-
+</div>
+</div>
 <%- include('partials/footer.ejs') %>
